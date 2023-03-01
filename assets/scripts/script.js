@@ -43,15 +43,16 @@ function generateTodayForecast(weatherData) {
 
 }
 
-function generateFiveForecasts(weatherData) {
-    for (var i = 1; i < 6; i++) {
-        let singleForecastContainer = $("<div>").addClass("singleForecastContainer");
-        let eachUnixTime = weatherData.list[i].dt;
-        console.log(eachUnixTime)
-        let eachForecastTime = dayjs.unix(eachUnixTime).format('(MM/DD/YYYY)');
-        console.log(eachForecastTime);
-        let eachTimeDisplay = $("<h2>").text();
-        $(foreCastContainer).append(singleForecastContainer.append(eachTimeDisplay));
+async function generateFiveForecasts(weatherData) {
+    for (var i = 7; i < weatherData.list.length; i += 8) {
+        let eachTime = dayjs.unix(weatherData.list[i].dt).format('(MM/DD/YYYY)');
+        let eachIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + weatherData.list[i].weather[0].icon + "@2x.png");
+        let eachTimeDisplay = $("<h3>").text(eachTime).append(eachIcon);
+        let eachCast = $("<div>").addClass("eachDailyCast");
+        let eachTemp = $("<p>").text("Temp: " + weatherData.list[i].main.temp + " \u2109");
+        let eachWind = $("<p>").text("Wind: " + weatherData.list[i].wind.speed + " MPH");
+        let eachHumid = $("<p>").text("Humidity: " + weatherData.list[i].main.humidity + "%");    
+        $(foreCastContainer).append(eachCast.append(eachTimeDisplay, eachTemp, eachWind, eachHumid));
     }
 }
 
