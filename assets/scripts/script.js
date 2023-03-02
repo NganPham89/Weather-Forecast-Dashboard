@@ -21,12 +21,17 @@ $(function () {
     });
 });
 
+function pressEnter(event) {
+    if (event.key == "Enter") {
+        findCurrentWeatherInfo();
+        $(".cityInput").val("");     
+    }
+}
 
 $(searchButton).click(function () {
     findCurrentWeatherInfo();
     $(".cityInput").val("");
 });
-
 
 $(clearButton).click(function () {
     localStorage.clear();
@@ -54,6 +59,7 @@ function generateTodayForecast(weatherData) {
     let currentTime = dayjs.unix(weatherData.list[0].dt).format('(MMMM, DD YYYY)');
     let currentIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + weatherData.list[0].weather[0].icon + "@2x.png");
     let cityTimeDisplay = $("<h2>").text(currentCity + " " + currentTime).append(currentIcon);
+    $(cityTimeDisplay).addClass("cityTimeDisplay");
 
     let currentTemp = $("<h3>").text("Temp: " + weatherData.list[0].main.temp + " \u2109");
     let currentWind = $("<h3>").text("Wind: " + weatherData.list[0].wind.speed + " MPH");
