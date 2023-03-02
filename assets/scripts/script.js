@@ -41,7 +41,7 @@ $(clearButton).click(function () {
 
 async function findCurrentWeatherInfo() {
     let cityInput = $(".cityInput").val();
-    let requestCityWeather = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&units=imperial&appid=2f86475148abed664b43332f701d4d90";
+    let requestCityWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&units=imperial&appid=2f86475148abed664b43332f701d4d90";
     let response = await fetch(requestCityWeather);
     if (response.status !== 200) {
         alert("No city found.")
@@ -57,7 +57,7 @@ function generateTodayForecast(weatherData) {
     $(".cityWeatherInfo").empty();
     let currentCity = weatherData.city.name;
     let currentTime = dayjs.unix(weatherData.list[0].dt).format('(MMMM, DD YYYY)');
-    let currentIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + weatherData.list[0].weather[0].icon + "@2x.png");
+    let currentIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + weatherData.list[0].weather[0].icon + "@2x.png");
     let cityTimeDisplay = $("<h2>").text(currentCity + " " + currentTime).append(currentIcon);
     $(cityTimeDisplay).addClass("cityTimeDisplay");
 
@@ -73,7 +73,7 @@ function generateFiveForecasts(weatherData) {
     $(foreCastContainer).empty();
     for (var i = 7; i < weatherData.list.length; i += 8) {
         let eachTime = dayjs.unix(weatherData.list[i].dt).format('(MM/DD/YYYY)');
-        let eachIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + weatherData.list[i].weather[0].icon + "@2x.png");
+        let eachIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + weatherData.list[i].weather[0].icon + "@2x.png");
         let eachTimeDisplay = $("<h3>").text(eachTime).append(eachIcon);
         let eachCast = $("<div>").addClass("eachDailyCast");
         let eachTemp = $("<p>").text("Temp: " + weatherData.list[i].main.temp + " \u2109");
@@ -127,7 +127,7 @@ $(searchedCitiesList).on("click", ".listedCity", function () {
 async function renewCurrentWeatherInfo(retrievedCoord) {
     let retrievedLat = retrievedCoord.split("&")[0];
     let retrievedLon = retrievedCoord.split("&")[1];
-    let requestCityWeather = "http://api.openweathermap.org/data/2.5/forecast?lat=" + retrievedLat + "&lon=" + retrievedLon + "&units=imperial&appid=2f86475148abed664b43332f701d4d90";
+    let requestCityWeather = "https://api.openweathermap.org/data/2.5/forecast?lat=" + retrievedLat + "&lon=" + retrievedLon + "&units=imperial&appid=2f86475148abed664b43332f701d4d90";
     let response = await fetch(requestCityWeather);
     if (response.status !== 200) {
         alert("No city found.")
