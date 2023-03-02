@@ -21,3 +21,6 @@ The launched page can be found [here](https://nganpham89.github.io/Weather-Forec
 - [x] Learning about passing retrieve data through various functions, via async and await javascript capability.
 - [x] Experimenting with features provided by Bootstrap and jQueryUI.
 - [x] More "for" loops.
+
+## Credits
+- Special thanks to Open Weather for providing free weather datas.
