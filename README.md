@@ -5,21 +5,19 @@ The launched page can be found [here](https://nganpham89.github.io/Weather-Forec
 
 ## Screenshots
 
-![StartPage](/assets/img/startpage.jpg)
+![StartPage](./assets/img/main-page.jpg)
 
-![ResultPage](/assets/img/result.jpg)
+## Features of this weather app
 
-![ScorePage](/assets/img/highscore.jpg)
-
-## Features of this quiz
-
-- A scoring system basing on the user's selected answer (including right/wrong notifications)
-- A countdown timer and a time-based penalty system for getting an incorrect answer
-- A result page with a form to record the user's score and a high score page to display all of the user's previous scores
+- A search box with auto complete suggestion to various major cities in the U.S.
+- A display of the searched city's date, temperature, windspeed, and humidity.
+- A display of the searched city's weather prediction informations for the next 5 days.
+- A log of previous searches that the user has made, which they can click on to perform another query.
+- Said log would also be stored, even when the user refresh the page. A clear button is also provided to clear said log. 
 
 ## Goals of this project
 
-- [x] Learning about how to generate HTML/CSS elements using Javascript
-- [x] Integrating time interval function into other Javascript functions
-- [x] Experimenting with navigating and modifying DOM elements
-- [x] 'for loop', lots of 'for loops'
+- [x] Learning about how to retrieve data from a 3rd-party API and using those datas to serve the user dynamically.
+- [x] Learning about passing retrieve data through various functions, via async and await javascript capability.
+- [x] Experimenting with features provided by Bootstrap and jQueryUI.
+- [x] More "for" loops.
