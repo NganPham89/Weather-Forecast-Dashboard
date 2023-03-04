@@ -56,7 +56,7 @@ async function findCurrentWeatherInfo() {
 function generateTodayForecast(weatherData) {
     $(".cityWeatherInfo").empty();
     let currentCity = weatherData.city.name;
-    let currentTime = dayjs.unix(weatherData.list[0].dt).format('(MMMM, DD YYYY)');
+    let currentTime = dayjs.unix(weatherData.list[0].dt).format('(dddd, MMMM DD, YYYY)');
     let currentIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + weatherData.list[0].weather[0].icon + "@2x.png");
     let cityTimeDisplay = $("<h2>").text(currentCity + " " + currentTime).append(currentIcon);
     $(cityTimeDisplay).addClass("cityTimeDisplay");
@@ -72,7 +72,7 @@ function generateTodayForecast(weatherData) {
 function generateFiveForecasts(weatherData) {
     $(foreCastContainer).empty();
     for (var i = 7; i < weatherData.list.length; i += 8) {
-        let eachTime = dayjs.unix(weatherData.list[i].dt).format('(MM/DD/YYYY)');
+        let eachTime = dayjs.unix(weatherData.list[i].dt).format('(ddd M/D/YY)');
         let eachIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + weatherData.list[i].weather[0].icon + "@2x.png");
         let eachTimeDisplay = $("<h3>").text(eachTime).append(eachIcon);
         let eachCast = $("<div>").addClass("eachDailyCast");

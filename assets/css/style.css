@@ -87,6 +87,7 @@ ul {
     width: 18%;
     background-color: var(--nightsky);
     margin: 0 1%;
+    margin-bottom: 1%;
     color: white;
     border-radius: 10px;
     text-align: center;
